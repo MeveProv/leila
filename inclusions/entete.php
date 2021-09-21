@@ -1,6 +1,7 @@
 <?php
   /*
   
+
   echo "Valeur du paramètre 'langue' envoyé avec l'URL : ";
   // La ligne de code suivante cause une erreur attendue qu'on corrigera ensemble au prochain cours
   // Vérifier si le paramètre 'langue' existe avant de l'utiliser :
@@ -11,19 +12,43 @@
   echo '<hr/>Contenu du tableau GET en PHP : <hr/>';
   print_r($_GET);
   */
+ 
 
+
+  //langues disponible
+  $langueDisponibles = [];
+  $nomsDesLangues = [];
+  $contenuDossierTextes = scandir('textes');
+  //pour chaque element met ca dans la variable a tour de role
+  foreach ($contenuDossierTextes as $nomDossier){
+   if($nomDossier != '.' && $nomDossier != '..' && $nomDossier != '.DS_Store'){
+     //separe les dossier de text de langue en separant avec le tiret
+     //
+   $codeEtNomLangue = explode('-' , $nomDossier);
+    $langueDisponibles[] = $codeEtNomLangue[0];
+    $nomsDesLangues[$codeEtNomLangue[0]] = $codeEtNomLangue[1];
+   }
+  }
+  
+
+
+  //intertionnisation
   // A - Déterminer la langue par défaut
   $langueChoisie = 'fr';
 
   // B - Vérifier si l'utilisateur a déjà fait un choix de langue auparavant.
   // Si tel est le cas, le tableau $_CCOKIE contiendra un témoin HTTP nommé 
   // 'leila_langue' (voir le code de l'étape C plus loin)
-  if(isset($_COOKIE['leila_langue'])) {
+  //ajoute une condition d ne pas changer le cookies defence contre les changement par l'lutilisateur
+  if(isset($_COOKIE['leila_langue']) && in_array($_COOKIE['leila_langue'], $langueDisponibles)) {
     $langueChoisie = $_COOKIE['leila_langue'];
   }
 
   // C - Si l'utilisateur choisi une langue en cliquant un lien dans la navigation en haut de la page
-  if(isset($_GET['langue'])) {
+  
+  // ajoute une condition si ca se trouve dans les langue disponible
+  //variable qui passe dans url...... si elle est dans  la variable des langue dispo
+  if(isset($_GET['langue']) && in_array($_GET['langue'], $langueDisponibles) == true){
     $langueChoisie = $_GET['langue'];
     
     // C2 - Retenir le choix de langue de l'utilisateur dans un témoin HTTP (cookie)
@@ -31,7 +56,7 @@
   }
 
   // D - On est enfin prêt à charger le fichier contenant les textes dans langue choisie
-  include('textes/' . $langueChoisie . '/i18n.txt.php');
+  include('textes/' . $langueChoisie . '-' . $nomsDesLangues[$langueChoisie] . '/i18n.txt.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,9 +91,10 @@
           }
         ?>
         <nav class="i18n">
-          <a href="?langue=fr" class="<?php if($langueChoisie == "fr") {echo 'actif';}?>" title="Français">fr</a>
-          <a href="?langue=en" class="<?php if($langueChoisie == "en") {echo 'actif';}?> ?>" title="English">en</a>
-        </nav>
+          <?php foreach ($langueDisponibles as $codeLangue){ ?>
+          <a href="?langue=<?= $codeLangue; ?>" class="<?php  if($langueChoisie == $codeLangue){ echo 'actif';}?>" title="<?= $nomsDesLangues[$codeLangue]; ?>"><?= $codeLangue; ?></a>
+         <?php } ?>
+        </nav> 
       </div>
       <div class="titre-page">
 
