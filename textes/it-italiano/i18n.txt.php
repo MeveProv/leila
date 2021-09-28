@@ -18,7 +18,7 @@ $meta = [               //tableau numérique 0, 1.. accu menu
 
     "vins" =>   [ 
         
-                "titre" => "Wine Menu",
+                "titre" => "Lista dei Vini",
                 "desc" =>  "Wine list of Leila restaurant",
                 "h1" => "Lista dei vini"
                 ]
