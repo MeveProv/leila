@@ -61,16 +61,22 @@
   //////// A cette endroit Je peux rajouter gerer le choix de citation aléatoire car l'utilisateur a deja choisie sa langue
 //peut pas inclure en php doit l'analyser
 
-//Etape 1 ----acceder au fichier            ouvre le fichier et me donne tous sur une ligne
- //si utilise les guillemets fais apparaitre la variable part a la chassedes variables sinon concanetation comme en haut
-$citationsChaine = file_get_contents("data/citations-$page.json");//interpolation
+
+
+ 
 
 //Etape 2 ------Iterpreter(Analyser la syntaxe) le code json dans la variable $citationsChaine
-$citationsTab = json_decode($citationsChaine,true);
+
 //copir tableau interpréter afficher le tableu pour debogage
 //print_r($citationsTab);
 //afficher uniquement les tableau dea citation dans la langue choisi sur le site
-print_r($citationsTab[$langueChoisie]);
+///etape 3 selectionner le tablaue correspont a la langue choisie
+
+
+
+///ETAPE # 4 choisir une citation aléatoirement dan le tableua($citationsTab[$langueChoisie]);
+              ///////diminue le lenght le nombre total donne le nombre 0 dans le tableau (derniere position possible)
+
 
 ?>
 <!DOCTYPE html>

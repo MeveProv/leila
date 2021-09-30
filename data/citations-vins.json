@@ -5,8 +5,8 @@
             "auteur": "Proverbe Russe"
         },
         {
-            "texte": "Le vin est innocent, l'ivrogne seul est coupable.",
-            "auteur": "Proverbe Russe"
+            "texte": "Trop ou trop peu de vin interdit la vérité.",
+            "auteur": "Blaise Pascal"
         }
 
 
@@ -19,6 +19,10 @@
         {
             "texte": "I cook with wine. Sometimes I even add it to the food.",
             "auteur": "W. C. Fields"
+        },
+        {
+            "texte": "A bottle of wine begs to be shared; I have never met a miserly wine lover.",
+            "auteur": "Clifton Fadiman"
         }
 
 
