@@ -36,8 +36,7 @@ $citationsTab = json_decode($citationsChaine,true);
 
 $citationLangueChoisie = (isset($citationsTab[$langue])) ? $citationsTab[$langue] : $citationsTab['fr']; 
 
-///etape 3 selectionner le tablaue correspont a la langue choisie
-$citationLangueChoisie = $citationsTab[$langue];
+
 ///ETAPE # 4 choisir une citation aléatoirement dan le tableua($citationsTab[$langueChoisie]);
 ///////diminue le lenght le nombre total donne le nombre 0 dans le tableau (derniere position possible)
 $positionAleatoire = rand(0, count($citationLangueChoisie)-1);
