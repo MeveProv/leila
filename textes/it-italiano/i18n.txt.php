@@ -53,7 +53,7 @@ $acc_introP2 = "One of the oldest buildings in the city on ... rue Neuve, you ca
 /* 
     Le texte de cette section du site représente du *contenu dynamique* (et non pas des textes statiques), et sera géré plus tard dans le cours (une exception pour les 2 mots "pour" et "personnes" utilisés dans la description des plats, que je voudrais discuter avec vous en classe).
 */
-
+$mnu_portion = "porzioni";
 // Carte des vins
 $vin_frmEtiquette = "Search: ";
 $vin_frmPlaceholder = "By Country (examples : Quebec, France, Spain)";
